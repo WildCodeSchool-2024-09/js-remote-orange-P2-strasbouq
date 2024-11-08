@@ -1,16 +1,18 @@
-import facebook from "../images/facebook.png";
-import instagram from "../images/instagram.png";
-import logo from "../images/logo.png";
-import panier from "../images/panier.png";
+import facebook from "../assets/logo/facebook.png";
+import instagram from "../assets/logo/instagram.png";
+import logo from "../assets/logo/logo.png";
+import panier from "../assets/logo/panier.png";
 
 const Header = () => {
   return (
-    <div>
-      <img src={facebook} alt="logofacebook" />
-      <img src={instagram} alt="logoinstagram" />
-      <img src={logo} alt="logostrasbouq" />
-      <img src={panier} alt="logopanier" />
-    </div>
+    <>
+      <header>
+        <img src={facebook} alt="Logo Facebook" />
+        <img src={instagram} alt="Logo Instagram" />
+        <img src={logo} alt="Logo Strasbouq" />
+        <img src={panier} alt="Logo Panier" />
+      </header>
+    </>
   );
 };
 

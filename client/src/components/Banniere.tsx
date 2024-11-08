@@ -1,18 +1,18 @@
-import ban from "../assets/ban.png";
+import ban from "../assets/logo/ban.jpg";
 
 const Banniere = () => {
   return (
-    <>
-      <div className="imgban">
-        <img src={ban} alt="banniere" />
-      </div>
-      <div className="">
+    <div>
+      {}
+      <img src={ban} alt="Bannière" />
+
+      {}
+      <div>
         <h2>Nos Bouquets</h2>
-        <button type="button" className="buttonDecouvrir">
-          Découvrir
-        </button>
+        <button type="button">Découvrir</button>
       </div>
-    </>
+    </div>
   );
 };
+
 export default Banniere;
