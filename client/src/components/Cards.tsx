@@ -1,11 +1,6 @@
 const Cards = () => {
   return (
     <>
-      <style>
-        {`
-
-        `}
-      </style>
       <div>
         <h3>Livraison 24H</h3>
         <p>
