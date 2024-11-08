@@ -1,6 +1,11 @@
 const Newsletter = () => {
   return (
     <div>
+      <style>
+        {`
+
+        `}
+      </style>
       <div>
         <p>
           Strasbouq <br />
