@@ -1,0 +1,38 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fdbdb1; /* Couleur de fond rose clair */
+  padding: 10px 20px; /* Marges intérieures pour espacer les éléments */
+  border-bottom: 2px solid #e9a79f; /* Ligne pour délimiter l'en-tête */
+}
+
+header img {
+  cursor: pointer;
+}
+
+header img:nth-child(1) {
+  position: relative;
+  width: 25px;
+  top: -90px;
+  right: 0;
+}
+
+header img:nth-child(2) {
+  position: relative;
+  width: 25px;
+  top: -90px;
+  right: 0;
+}
+
+header img:nth-child(3) {
+  height: 220px;
+  margin: 0 auto;
+}
+
+header img:nth-child(4) {
+  position: relative;
+  width: 40px;
+  top: -90px;
+  right: 0;
+}
