@@ -2,10 +2,8 @@ const Cards = () => {
   return (
     <>
       <div>
-        <h3>Livraison 24H</h3>
-        <p>
-          Les commandes sont préparées dans la journée et livrées le lendemain
-        </p>
+        <h3>Retrait rapide</h3>
+        <p>Les réservations sont disponibles sous un délai de 2 heures</p>
         <h3>Création artisale</h3>
         <p>
           Nos créations sont toutes réalisées à la main avec beaucoup de passion
