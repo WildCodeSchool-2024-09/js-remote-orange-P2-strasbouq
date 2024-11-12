@@ -6,14 +6,14 @@ import Header from "./Header/Header";
 import Newsletter from "./Newsletter/Newsletter";
 
 function App() {
-	return (
-		<>
-			<Header />
-			<Banniere />
-			<Cards />
-			<Footer />
-			<Newsletter />
-		</>
-	);
+  return (
+    <>
+      <Header />
+      <Banniere />
+      <Cards />
+      <Footer />
+      <Newsletter />
+    </>
+  );
 }
 export default App;
