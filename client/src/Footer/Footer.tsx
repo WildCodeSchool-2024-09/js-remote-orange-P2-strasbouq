@@ -1,4 +1,4 @@
-import type { FC, MouseEvent, FocusEvent, ChangeEvent } from "react";
+import type { ChangeEvent, FC, FocusEvent, MouseEvent } from "react";
 import { useState } from "react";
 
 const Footer: FC = () => {
