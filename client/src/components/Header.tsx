@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import coeur from "../assets/logo/coeur.png";
 import facebook from "../assets/logo/facebook.png";
 import instagram from "../assets/logo/instagram.png";
 import logo from "../assets/logo/logo.png";
@@ -8,10 +10,29 @@ const Header = () => {
   return (
     <>
       <header>
-        <img className="fb" src={facebook} alt="Logo Facebook" />
-        <img className="insta" src={instagram} alt="Logo Instagram" />
-        <img className="stasbouq" src={logo} alt="Logo Strasbouq" />
-        <img className="pan" src={panier} alt="Logo Panier" />
+        <a
+          href="https://www.facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img className="fb" src={facebook} alt="Logo Facebook" />
+        </a>
+        <a
+          href="https://www.instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img className="insta" src={instagram} alt="Logo Instagram" />
+        </a>
+        <Link to="/">
+          <img className="stasbouq" src={logo} alt="Logo Strasbouq" />
+        </Link>
+        <Link to="/favoris">
+          <img className="coeur" src={coeur} alt="Logo Favoris" />
+        </Link>
+        <Link to="/panier">
+          <img className="pan" src={panier} alt="Logo Panier" />
+        </Link>
       </header>
     </>
   );

@@ -7,30 +7,37 @@ header {
   border-bottom: 2px solid #e9a79f; /* Ligne pour délimiter l'en-tête */
 }
 
-header img {
+header a img {
   cursor: pointer;
 }
 
-header img:nth-child(1) {
+.fb {
   position: relative;
   width: 25px;
   top: -90px;
   right: 0;
 }
 
-header img:nth-child(2) {
+.insta {
   position: relative;
   width: 25px;
   top: -90px;
-  right: 0;
+  right: 20em;
 }
 
-header img:nth-child(3) {
+.stasbouq {
   height: 220px;
   margin: 0 auto;
 }
 
-header img:nth-child(4) {
+.coeur {
+  position: relative;
+  width: 30px;
+  top: -90px;
+  left: 20em;
+}
+
+.pan {
   position: relative;
   width: 40px;
   top: -90px;
