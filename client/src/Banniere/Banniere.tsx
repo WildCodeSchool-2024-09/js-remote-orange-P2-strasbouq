@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import ban from "../assets/logo/ban.jpg";
-import "../styles/Banniere.css";
+import "./Banniere.css";
 
 const Banniere = () => {
   return (
