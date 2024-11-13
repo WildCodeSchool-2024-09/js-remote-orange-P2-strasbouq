@@ -3,7 +3,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #fdbdb1; 
+  background-color: #fdbdb1;
   position: relative;
 }
 
@@ -16,7 +16,6 @@ header a img {
   margin: 0 10px;
 }
 
-
 .stasbouq {
   width: 180px;
   position: relative;
@@ -25,8 +24,8 @@ header a img {
   margin: 0;
 }
 
-
-.fb, .insta {
+.fb,
+.insta {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -36,7 +35,8 @@ header a img {
   left: 60px;
 }
 
-.coeur, .pan {
+.coeur,
+.pan {
   position: absolute;
   top: 20px;
   right: 60px;
@@ -44,7 +44,6 @@ header a img {
 
 .pan {
   width: 40px;
-  right: 15px; 
+  right: 15px;
   top: 15px;
-
 }
