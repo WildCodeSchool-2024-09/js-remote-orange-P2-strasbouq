@@ -1,4 +1,5 @@
-import ban from "../assets/logo/ban.jpg";
+import { Link } from "react-router-dom";
+import ban from "../assets/logo/ban2.jpg";
 import "./Banniere.css";
 
 const Banniere = () => {
@@ -7,7 +8,9 @@ const Banniere = () => {
       <img src={ban} alt="Bannière" className="banniere-img" />
       <div className="banniere-content">
         <h2>Nos Bouquets</h2>
-        <button type="button">Découvrir</button>
+        <Link to="/shop">
+          <button type="button">Découvrir</button>
+        </Link>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 .banniere {
   position: relative; /* Position relative pour gérer les enfants */
   width: 100%;
-  height: 400px; /* Hauteur de la bannière */
+  height: 700px; /* Hauteur de la bannière */
   overflow: hidden; /* Coupe les débordements éventuels */
 }
 
@@ -46,4 +46,15 @@
 
 .banniere-content button:hover {
   background-color: #e5a7a0;
+}
+@media screen and (max-width: 768px) {
+  .banniere-content {
+    width: 60%;
+  }
+  .banniere {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+  }
 }
