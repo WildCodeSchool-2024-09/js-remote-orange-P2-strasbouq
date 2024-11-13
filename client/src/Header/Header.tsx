@@ -4,7 +4,7 @@ import facebook from "../assets/logo/facebook.png";
 import instagram from "../assets/logo/instagram.png";
 import logo from "../assets/logo/logo.png";
 import panier from "../assets/logo/panier.png";
-import "../styles/header.css";
+import "./Header.css";
 
 const Header = () => {
   return (
