@@ -2,44 +2,49 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fdbdb1; /* Couleur de fond rose clair */
-  padding: 10px 20px; /* Marges intérieures pour espacer les éléments */
-  border-bottom: 2px solid #e9a79f; /* Ligne pour délimiter l'en-tête */
+  padding: 20px;
+  background-color: #fdbdb1; 
+  position: relative;
+}
+
+header a {
+  display: inline-block;
 }
 
 header a img {
-  cursor: pointer;
+  width: 30px;
+  margin: 0 10px;
 }
 
-.fb {
+
+.stasbouq {
+  width: 180px;
   position: relative;
-  width: 25px;
-  top: -90px;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}
+
+
+.fb, .insta {
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
 .insta {
-  position: relative;
-  width: 25px;
-  top: -90px;
-  right: 20em;
+  left: 60px;
 }
 
-.stasbouq {
-  height: 220px;
-  margin: 0 auto;
-}
-
-.coeur {
-  position: relative;
-  width: 30px;
-  top: -90px;
-  left: 20em;
+.coeur, .pan {
+  position: absolute;
+  top: 20px;
+  right: 60px;
 }
 
 .pan {
-  position: relative;
   width: 40px;
-  top: -90px;
-  right: 0;
+  right: 15px; 
+  top: 15px;
+
 }
