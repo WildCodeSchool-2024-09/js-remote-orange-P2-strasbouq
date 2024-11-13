@@ -1,0 +1,59 @@
+/* Styles par défaut */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #ffe3de;
+  height: 200px;
+  align-items: center;
+}
+
+.footer div {
+  text-align: center;
+}
+
+.footer .newsletter {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer .newsletter input {
+  padding: 10px;
+  margin-right: 10px;
+  width: 300px;
+}
+
+.footer .newsletter button {
+  padding: 10px;
+  background-color: #fdbdb1;
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Styles pour les écrans de moins de 768px */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .footer div {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .footer .newsletter input {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .footer .newsletter button {
+    width: 100%;
+  }
+}

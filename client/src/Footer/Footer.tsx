@@ -1,5 +1,6 @@
 import type { ChangeEvent, FC, FocusEvent, MouseEvent } from "react";
 import { useState } from "react";
+import "./Footer.css";
 
 const Footer: FC = () => {
   const [email, setEmail] = useState("");
@@ -46,9 +47,11 @@ const Footer: FC = () => {
           justifyContent: "space-between",
           padding: "20px",
           backgroundColor: "#ffe3de",
+          height: "200px",
+          alignItems: "center",
         }}
       >
-        <div>
+        <div style={{ marginLeft: "200px", textAlign: "center" }}>
           <h4>StrasBouq</h4>
           <p>111 rue du Bouquet</p>
           <p>67000 Strasbourg</p>
@@ -60,6 +63,7 @@ const Footer: FC = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <h4 style={{ marginBottom: "10px" }}>
@@ -74,7 +78,7 @@ const Footer: FC = () => {
           >
             <input
               type="email"
-              placeholder="Votre adresse email"
+              placeholder="Saisissez votre adresse email"
               style={{ padding: "10px", marginRight: "10px", width: "300px" }}
               value={email}
               onChange={handleChange}
@@ -95,7 +99,7 @@ const Footer: FC = () => {
               onBlur={handleBlur}
               onClick={handleClick}
             >
-              S'inscrire
+              Je m'inscris
             </button>
           </div>
         </div>
@@ -105,7 +109,7 @@ const Footer: FC = () => {
         style={{
           textAlign: "center",
           padding: "10px",
-          backgroundColor: "#ffe3de",
+          backgroundColor: "white",
         }}
       >
         <p>© 2024 - Tous droits réservés</p>
