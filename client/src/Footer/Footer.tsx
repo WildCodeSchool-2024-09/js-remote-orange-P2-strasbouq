@@ -1,4 +1,4 @@
-import type { FC, MouseEvent, FocusEvent, ChangeEvent } from "react";
+import type { ChangeEvent, FC, FocusEvent, MouseEvent } from "react";
 import { useState } from "react";
 import "./Footer.css";
 
@@ -51,9 +51,7 @@ const Footer: FC = () => {
           alignItems: "center",
         }}
       >
-        <div style={{marginLeft: "200px",
-          textAlign: "center",
-        }}>
+        <div style={{ marginLeft: "200px", textAlign: "center" }}>
           <h4>StrasBouq</h4>
           <p>111 rue du Bouquet</p>
           <p>67000 Strasbourg</p>

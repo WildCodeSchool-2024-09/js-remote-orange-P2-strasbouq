@@ -5,16 +5,16 @@ import panier from "../assets/logo/panier.png";
 import "./Header.css";
 
 const Header = () => {
-	return (
-		<>
-			<header>
-				<img className="fb" src={facebook} alt="Logo Facebook" />
-				<img className="insta" src={instagram} alt="Logo Instagram" />
-				<img className="stasbouq" src={logo} alt="Logo Strasbouq" />
-				<img className="pan" src={panier} alt="Logo Panier" />
-			</header>
-		</>
-	);
+  return (
+    <>
+      <header>
+        <img className="fb" src={facebook} alt="Logo Facebook" />
+        <img className="insta" src={instagram} alt="Logo Instagram" />
+        <img className="stasbouq" src={logo} alt="Logo Strasbouq" />
+        <img className="pan" src={panier} alt="Logo Panier" />
+      </header>
+    </>
+  );
 };
 
 export default Header;
