@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Shop from "./pages/Shop";
 import Favoris from "./pages/Favoris";
+import Panier from "./pages/panier";
 
 const router = createBrowserRouter([
 	{
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
 	{
 		path: "/favoris",
 		element: <Favoris />,
+	},
+	{
+		path: "/panier",
+		element: <Panier />,
 	},
 ]);
 
