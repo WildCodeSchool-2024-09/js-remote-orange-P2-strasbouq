@@ -50,7 +50,10 @@ const SelectionPanier: FC<SelectionPanierProps> = ({ items, onRemoveItem }) => {
         </select>
       </div>
       <div>
-        <p>Veuillez retirer votre commande en boutique muni d'une pièce d'identité.</p>
+        <p>
+          Veuillez retirer votre commande en boutique muni d'une pièce
+          d'identité.
+        </p>
       </div>
     </div>
   );
