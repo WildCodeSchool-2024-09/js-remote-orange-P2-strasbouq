@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Shop from "./pages/Shop";
+import Panier from "./pages/panier";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: "/shop",
     element: <Shop />,
+  },
+  {
+    path: "/panier",
+    element: <Panier />,
   },
 ]);
 
