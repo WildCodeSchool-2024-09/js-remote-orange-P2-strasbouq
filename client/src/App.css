@@ -27,6 +27,7 @@ h6 {
 
 p,
 button,
-input {
+input,
+span {
   font-family: var(--font-ban);
 }
