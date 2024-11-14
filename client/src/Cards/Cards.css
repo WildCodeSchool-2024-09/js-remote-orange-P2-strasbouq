@@ -1,8 +1,3 @@
-h1,
-h2,
-p {
-  font-family: Crimson Text, serif;
-}
 .cards-title {
   font-size: 30px;
   text-align: center;
@@ -13,14 +8,15 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 20px;
+  margin-bottom: 50px;
+  margin-top: 0%;
 }
 .boxtitle {
   padding: 30px;
 }
 .box {
   display: flex;
-  width: 380px;
+  width: 350px;
   height: 316px;
   margin: 30px;
   background-color: #e0e0e0;

@@ -1,13 +1,12 @@
 .banniere {
   position: relative; /* Position relative pour gérer les enfants */
   width: 100%;
-  height: 700px; /* Hauteur de la bannière */
-  overflow: hidden; /* Coupe les débordements éventuels */
+  height: 500px; /* Hauteur de la bannière */
 }
 
 .banniere-img {
   width: 100%;
-  height: 100%;
+  height: 90%;
   object-fit: cover; /* Remplit le conteneur proportionnellement */
   position: absolute;
   top: 0;
@@ -17,7 +16,7 @@
 
 .banniere-content {
   position: absolute; /* Position absolue pour centrer dans le parent */
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%); /* Centre précisément l'encart */
   text-align: center; /* Centrer le texte */
