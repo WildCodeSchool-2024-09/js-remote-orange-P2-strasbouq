@@ -2,7 +2,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   background-color: #fdbdb1;
   position: relative;
 }
@@ -13,7 +13,7 @@ header a {
 
 header a img {
   width: 30px;
-  margin: 0 10px;
+  margin: 10px;
 }
 
 .stasbouq {
