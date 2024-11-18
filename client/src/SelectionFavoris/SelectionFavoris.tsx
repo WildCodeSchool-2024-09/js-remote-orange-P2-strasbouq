@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./SelectionFavoris.css";
 import CardsProduits from "../Cards/CardsProduits";
 
 interface Produit {
@@ -65,7 +66,7 @@ const SelectionFavoris = () => {
 	}
 
 	if (produitsFavoris.length === 0) {
-		return <div>Aucun produit en favoris</div>;
+		return <div className="Aucun">Aucun produit en favoris</div>;
 	}
 
 	return (
