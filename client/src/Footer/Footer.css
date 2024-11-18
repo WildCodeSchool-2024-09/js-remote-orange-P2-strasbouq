@@ -1,31 +1,31 @@
 /* Styles pour les écrans de moins de 768px */
 @media (max-width: 768px) {
-  .footer {
-    display: flex; /* Assure que le conteneur utilise flexbox */
-    flex-direction: column;
-    flex-wrap: nowrap;
-    height: auto;
-    align-items: center;
-    justify-content: center; /* Centre horizontalement les éléments */
-    width: 100%; /* Optionnel si le conteneur doit prendre toute la largeur */
-  }
+	.footer {
+		display: flex; /* Assure que le conteneur utilise flexbox */
+		flex-direction: column;
+		flex-wrap: nowrap;
+		height: auto;
+		align-items: center;
+		justify-content: center; /* Centre horizontalement les éléments */
+		width: 100%; /* Optionnel si le conteneur doit prendre toute la largeur */
+	}
 
-  .adresse {
-    padding-top: 6%;
-  }
+	.adresse {
+		padding-top: 6%;
+	}
 
-  .footer div {
-    margin-bottom: 20px;
-    text-align: center;
-  }
+	.footer div {
+		margin-bottom: 20px;
+		text-align: center;
+	}
 
-  .footer .newsletter input {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
+	.footer .newsletter input {
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 10px;
+	}
 
-  .footer .newsletter button {
-    width: 100%;
-  }
+	.footer .newsletter button {
+		width: 100%;
+	}
 }
