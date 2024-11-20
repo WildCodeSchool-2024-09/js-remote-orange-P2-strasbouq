@@ -1,62 +1,124 @@
-import type { FC } from "react";
+import type React from "react";
+import { useEffect, useState } from "react";
+import { useCart } from "../CartContext";
 
-interface CartItem {
-	id: number;
-	name: string;
-	price: number;
-	quantity: number;
+interface Produit {
+  id: number;
+  nom: string; // Uniformisons avec nom plutôt que name
+  prix: number; // Uniformisons avec prix plutôt que price
+  image_url?: string;
+  description?: string;
+  quantity: number;
 }
 
-interface SelectionPanierProps {
-	items: CartItem[];
-	onRemoveItem: (id: number) => void;
-}
+const SelectionPanier: React.FC = () => {
+  const [produits, setProduits] = useState<Produit[]>([]);
+  const { cart, setCart } = useCart();
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<Error | null>(null);
 
-const SelectionPanier: FC<SelectionPanierProps> = ({ items, onRemoveItem }) => {
-	const total = items.reduce(
-		(acc, item) => acc + item.price * item.quantity,
-		0,
-	);
-	const tva = total * 0.2; // calcul de la TVA à 20%
+  useEffect(() => {
+    fetch("https://api-strasbouq.vercel.app/items")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then(
+        (result) => {
+          // Transformer les données pour correspondre à notre interface
+          const formattedResult = result.map(
+            (item: {
+              id: number;
+              name?: string;
+              nom?: string;
+              price?: number;
+              prix?: number;
+              image_url?: string;
+              description?: string;
+              quantity?: number;
+            }) => ({
+              ...item,
+              nom: item.name || item.nom, // Gérer les deux possibilités
+              prix: item.price || item.prix, // Gérer les deux possibilités
+              quantity: item.quantity || 1,
+            }),
+          );
+          setProduits(formattedResult);
+          setLoading(false);
+        },
+        (error) => {
+          setError(error);
+          setLoading(false);
+        },
+      );
+  }, []);
 
-	return (
-		<div>
-			<h1>Votre Panier</h1>
-			{items.length === 0 ? (
-				<p>Votre panier est vide.</p>
-			) : (
-				<ul>
-					{items.map((item) => (
-						<li key={item.id}>
-							<h2>{item.name}</h2>
-							<p>Prix: {item.price} €</p>
-							<p>Quantité: {item.quantity}</p>
-							<button type="button" onClick={() => onRemoveItem(item.id)}>
-								Retirer
-							</button>
-						</li>
-					))}
-				</ul>
-			)}
-			<h2>Total: {total} €</h2>
-			<h2>TVA: {tva} €</h2>
-			<h2>Total à payer: {total + tva} €</h2>
-			<div>
-				<h3>Mode de paiement</h3>
-				<select>
-					<option value="credit-card">Carte de crédit</option>
-					<option value="paypal">PayPal</option>
-					<option value="bank-transfer">Virement bancaire</option>
-				</select>
-			</div>
-			<div>
-				<p>
-					Veuillez retirer votre commande en boutique muni d'une pièce
-					d'identité.
-				</p>
-			</div>
-		</div>
-	);
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const onRemoveItem = (id: number) => {
+    const updatedCart = cart.filter((item) => item.id !== id);
+    setCart(updatedCart);
+  };
+
+  const total = cart.reduce(
+    (acc, item) => acc + item.prix * (item.quantity ?? 0), // Changé price en prix
+    0,
+  );
+  const tva = total * 0.2;
+
+  const produitsPanier = produits.filter((produit) =>
+    cart.some((pan) => pan.id === produit.id),
+  );
+
+  if (loading) {
+    return <div>Chargement...</div>;
+  }
+
+  if (error) {
+    return <div>Erreur: {error.message}</div>;
+  }
+
+  if (produitsPanier.length === 0) {
+    return <div>Aucun produit dans le Panier</div>;
+  }
+
+  // Ajout du return principal
+  return (
+    <div>
+      <h2>Votre sélection</h2>
+      <div>
+        {produitsPanier.map((produit) => {
+          const cartItem = cart.find((item) => item.id === produit.id);
+          const quantity = cartItem?.quantity ?? 0;
+
+          return (
+            <div key={produit.id}>
+              <h3>{produit.nom}</h3>
+              {produit.image_url && (
+                <img src={produit.image_url} alt={produit.nom} width="100" />
+              )}
+              <p>Prix: {produit.prix} €</p>
+              <p>Quantité: {quantity}</p>
+              <button type="button" onClick={() => onRemoveItem(produit.id)}>
+                Retirer du panier
+              </button>
+            </div>
+          );
+        })}
+      </div>
+
+      <div>
+        <h3>Récapitulatif</h3>
+        <p>Total HT: {total.toFixed(2)} €</p>
+        <p>TVA (20%): {tva.toFixed(2)} €</p>
+        <p>Total TTC: {(total + tva).toFixed(2)} €</p>
+      </div>
+    </div>
+  );
 };
 
 export default SelectionPanier;

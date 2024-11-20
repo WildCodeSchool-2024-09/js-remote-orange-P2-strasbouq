@@ -3,13 +3,13 @@ import Header from "../Header/Header";
 import SelectionFavoris from "../SelectionFavoris/SelectionFavoris";
 
 const Favoris = () => {
-	return (
-		<div>
-			<Header />
-			<SelectionFavoris />
-			<Footer />
-		</div>
-	);
+  return (
+    <div>
+      <Header />
+      <SelectionFavoris />
+      <Footer />
+    </div>
+  );
 };
 
 export default Favoris;
