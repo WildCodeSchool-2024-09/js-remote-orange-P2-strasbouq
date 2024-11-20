@@ -2,14 +2,6 @@ import { useCart } from "../CartContext";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
-interface Produit {
-  id: number;
-  nom: string;
-  prix: number;
-  quantity: number;
-  image_url?: string;
-}
-
 const Panier = () => {
   const { cart, onRemoveItem } = useCart(); // Utiliser le contexte du panier
   const total = cart.reduce(

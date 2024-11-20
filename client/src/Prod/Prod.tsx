@@ -8,6 +8,7 @@ interface Produit {
   nom: string;
   description: string;
   prix: number;
+  quantity: number;
 }
 
 const Produits = () => {

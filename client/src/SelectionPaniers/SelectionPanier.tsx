@@ -33,7 +33,6 @@ const SelectionPanier: React.FC = () => {
               id: number;
               name?: string;
               nom?: string;
-              price?: number;
               prix?: number;
               image_url?: string;
               description?: string;
@@ -41,7 +40,7 @@ const SelectionPanier: React.FC = () => {
             }) => ({
               ...item,
               nom: item.name || item.nom, // Gérer les deux possibilités
-              prix: item.price || item.prix, // Gérer les deux possibilités
+              prix: item.prix || item.prix, // Gérer les deux possibilités
               quantity: item.quantity || 1,
             }),
           );
@@ -65,7 +64,7 @@ const SelectionPanier: React.FC = () => {
   };
 
   const total = cart.reduce(
-    (acc, item) => acc + item.prix * (item.quantity ?? 0), // Changé price en prix
+    (acc, item) => acc + item.prix * (item.quantity ?? 0),
     0,
   );
   const tva = total * 0.2;
