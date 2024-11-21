@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CardsProduits from "../Cards/CardsProduits";
+import "./SelectionFavoris.css";
 
 interface Produit {
 	id: number;
