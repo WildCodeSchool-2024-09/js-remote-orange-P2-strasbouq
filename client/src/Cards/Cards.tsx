@@ -13,7 +13,7 @@ const Cards = () => {
         </div>
         <div className="box">
           <div className="boxtitle">
-            <h2>Création artisale</h2>
+            <h2>Création artisanale</h2>
           </div>
           <p>
             Nos créations sont toutes réalisées à la main avec beaucoup de
