@@ -1,31 +1,74 @@
-import type React from "react";
-import { useState } from "react";
+import { useCart } from "../CartContext";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import SelectionPanier from "../SelectionPaniers/SelectionPanier";
+import "./Panier.css";
 
-interface CartItem {
-	id: number;
-	name: string;
-	price: number;
-	quantity: number;
-}
-
-const Panier: React.FC = () => {
-	const [cartItems, setCartItems] = useState<CartItem[]>([]);
-
-	const removeItemFromCart = (id: number) => {
-		setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
-	};
+const Panier = () => {
+	const { cart, onRemoveItem, increaseQuantity, decreaseQuantity } = useCart(); // Utiliser le contexte du panier
+	const total = cart.reduce(
+		(acc, item) => acc + item.prix * (item.quantity ?? 0),
+		0,
+	);
+	const tva = total * 0.2; // calcul de la TVA à 20%
 
 	return (
-		<>
+		<div>
 			<Header />
-			<main style={{ padding: "20px" }}>
-				<SelectionPanier items={cartItems} onRemoveItem={removeItemFromCart} />
-			</main>
+			<div className="panier">
+				<h1>Votre Panier</h1>
+
+				{cart.length === 0 ? (
+					<p>Votre panier est vide.</p>
+				) : (
+					<div className="produit">
+						{cart.map((item) => (
+							<div key={item.id}>
+								<h2>{item.nom}</h2>
+								{item.image_url && (
+									<img src={item.image_url} alt={item.nom} width="100" />
+								)}
+								<p>Prix: {item.prix} €</p>
+								<p>Quantité: {item.quantity}</p>
+								<button type="button" onClick={() => decreaseQuantity(item.id)}>
+									-
+								</button>
+								<button type="button" onClick={() => increaseQuantity(item.id)}>
+									+
+								</button>
+								<button type="button" onClick={() => onRemoveItem(item.id)}>
+									Retirer
+								</button>
+							</div>
+						))}
+					</div>
+				)}
+				<div className="total">
+					{cart.length > 0 && (
+						<>
+							<h2>Total: {total.toFixed(2)} €</h2>
+							<h2>TVA: {tva.toFixed(2)} €</h2>
+							<h2>Total à payer: {(total + tva).toFixed(2)} €</h2>
+						</>
+					)}
+					<div>
+						<h3>Mode de paiement</h3>
+						<select>
+							<option value="credit-card">Carte de crédit</option>
+							<option value="paypal">PayPal</option>
+							<option value="bank-transfer">Virement bancaire</option>
+						</select>
+					</div>
+					<div>
+						<p>
+							Veuillez retirer votre commande en boutique muni d'une pièce
+							d'identité.
+						</p>
+					</div>
+					<button type="button">Valider la commande</button>
+				</div>
+			</div>
 			<Footer />
-		</>
+		</div>
 	);
 };
 
