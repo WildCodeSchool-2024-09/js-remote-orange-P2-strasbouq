@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import caddie from "../assets/logo/caddie.png";
 import coeur from "../assets/logo/coeur.png";
 import facebook from "../assets/logo/facebook.png";
 import instagram from "../assets/logo/instagram.png";
@@ -26,11 +27,14 @@ const Header = () => {
       <Link to="/">
         <img className="stasbouq" src={logo} alt="Logo Strasbouq" />
       </Link>
+      <Link to="/Panier">
+        <img className="caddie" src={caddie} alt="Logo Caddie" />
+      </Link>
       <Link to="/Favoris">
         <img className="coeur" src={coeur} alt="Logo Favoris" />
       </Link>
-      <Link to="/panier">
-        <img className="pan" src={panier} alt="Logo Panier" />
+      <Link to="/Shop">
+        <img className="pan" src={panier} alt="Logo Shop" />
       </Link>
     </header>
   );
