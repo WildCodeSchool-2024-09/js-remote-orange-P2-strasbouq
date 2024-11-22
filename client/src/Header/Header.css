@@ -19,7 +19,7 @@ header a img {
 .stasbouq {
   width: 180px;
   position: relative;
-  left: 50%;
+  left: 140%;
   transform: translateX(-50%);
   margin: 0;
 }
@@ -35,15 +35,31 @@ header a img {
   left: 60px;
 }
 
-.coeur,
-.pan {
+.coeur {
   position: absolute;
-  top: 20px;
-  right: 60px;
+  top: 70px;
+  right: 23px;
 }
 
 .pan {
+  position: absolute;
   width: 40px;
-  right: 15px;
-  top: 15px;
+  top: 20px;
+  right: 20px;
+}
+
+.caddie {
+  position: absolute;
+  top: 110px;
+  right: 24px;
+}
+
+@media (max-width: 768px) {
+  .stasbouq {
+    width: 180px;
+    position: relative;
+    left: 60%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
 }
