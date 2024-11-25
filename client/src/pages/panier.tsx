@@ -7,7 +7,7 @@ const Panier = () => {
   const { cart, onRemoveItem, increaseQuantity, decreaseQuantity } = useCart(); // Utiliser le contexte du panier
   const total = cart.reduce(
     (acc, item) => acc + item.prix * (item.quantity ?? 0),
-    0
+    0,
   );
   const tva = total * 0.2; // calcul de la TVA à 20%
 
@@ -62,11 +62,11 @@ const Panier = () => {
           <form>
             <label>
               Nom :
-              <input type="text" name="name" />
+              <input type="text" name="lastName" />
             </label>
             <label>
               Prénom :
-              <input type="text" name="name" />
+              <input type="text" name="firstName" />
             </label>
           </form>
           <label htmlFor="meeting-time">
