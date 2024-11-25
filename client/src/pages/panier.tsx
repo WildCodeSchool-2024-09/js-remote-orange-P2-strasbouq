@@ -59,6 +59,16 @@ const Panier = () => {
               <option value="bank-transfer">Virement bancaire</option>
             </select>
           </div>
+          <form>
+            <label>
+              Nom :
+              <input type="text" name="lastName" />
+            </label>
+            <label>
+              Prénom :
+              <input type="text" name="firstName" />
+            </label>
+          </form>
           <label htmlFor="meeting-time">
             Choisissez la date et l'heure de votre retrait:
           </label>
