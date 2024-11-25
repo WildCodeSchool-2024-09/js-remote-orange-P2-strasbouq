@@ -114,6 +114,13 @@
 
 .total input {
   margin: 5px 0 15px 0;
+  background-color: #eeeeee;
+  border-radius: 5px;
+  border: none;
+}
+
+.total form {
+  margin: 5px 0 5px 0;
 }
 
 .total button {
