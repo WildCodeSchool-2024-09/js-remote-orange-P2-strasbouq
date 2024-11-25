@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CardsProduits from "../Cards/CardsProduits";
 import "./SelectionFavoris.css";
+import { useCart } from "../CartContext";
 
 interface Produit {
 	id: number;
@@ -16,6 +17,8 @@ const SelectionFavoris = () => {
 	const [favoris, setFavoris] = useState<Produit[]>([]); // Produits favoris
 	const [loading, setLoading] = useState<boolean>(true);
 	const [error, setError] = useState<Error | null>(null);
+
+	const { addToCart } = useCart(); // Utilisation du hook du contexte
 
 	// Charger les produits depuis l'API
 	useEffect(() => {
@@ -43,6 +46,12 @@ const SelectionFavoris = () => {
 		const savedFavoris = JSON.parse(localStorage.getItem("favoris") || "[]");
 		setFavoris(savedFavoris);
 	}, []);
+
+	// Ajouter un produit au panier via le contexte
+	const handleAddToCart = (produit: Produit) => {
+		addToCart(produit);
+		alert(`Produit ajouté au panier: ${produit.nom}`);
+	};
 
 	// Retirer un produit des favoris
 	const handleRemoveFavorite = (produit: Produit) => {
@@ -78,7 +87,7 @@ const SelectionFavoris = () => {
 					produits={produit}
 					onToggleFavorite={handleRemoveFavorite} // Utiliser handleRemoveFavorite pour retirer du favori
 					isFavorite={true}
-					onAddToCart={() => {}} // Fonction vide pour l'instant
+					onAddToCart={() => handleAddToCart(produit)}
 				/>
 			))}
 		</div>
