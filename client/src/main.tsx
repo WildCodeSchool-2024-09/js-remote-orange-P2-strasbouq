@@ -6,6 +6,7 @@ import { CartProvider } from "./CartContext";
 import Favoris from "./pages/Favoris";
 import Shop from "./pages/Shop";
 import Panier from "./pages/panier";
+import Admin from "./pages/Admin";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/panier",
     element: <Panier />,
+  },
+  {
+    path: "/admin",
+    element: <Admin />,
   },
 ]);
 
