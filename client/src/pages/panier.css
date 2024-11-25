@@ -143,3 +143,14 @@
   color: #666;
   margin-top: 10px;
 }
+
+@media (max-width: 768px) {
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .produit > div {
+    flex: 1 1 calc(50% - 40px);
+  }
+}
