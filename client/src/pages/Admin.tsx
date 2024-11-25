@@ -40,7 +40,7 @@ const Admin = () => {
   const calculateTotal = (items: Item[]): number =>
     items.reduce(
       (acc: number, item: Item) => acc + item.prix * item.quantity,
-      0
+      0,
     );
 
   return (
