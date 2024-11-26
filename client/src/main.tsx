@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import { CartProvider } from "./CartContext";
+import Admin from "./pages/Admin";
 import Favoris from "./pages/Favoris";
 import Shop from "./pages/Shop";
 import Panier from "./pages/panier";
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/panier",
     element: <Panier />,
+  },
+  {
+    path: "/admin",
+    element: <Admin />,
   },
 ]);
 
