@@ -1,0 +1,28 @@
+/* MessDefil.css */
+.messagedefilant {
+	overflow: hidden;
+	white-space: nowrap;
+	background-color: #fdbdb1; /* Couleur de fond pour la bande défilante */
+	padding: 4px 0 0;
+}
+
+.messagedefilant div {
+	display: inline-block;
+	padding-left: 100%;
+	animation: scrollText 20s linear infinite;
+}
+
+.messagedefilant span {
+	font-size: 1.2rem;
+	color: #000000; /* Couleur du texte */
+}
+
+/* Animation de défilement */
+@keyframes scrollText {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
