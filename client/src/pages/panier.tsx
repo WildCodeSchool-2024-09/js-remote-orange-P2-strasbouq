@@ -17,12 +17,28 @@ const Panier = () => {
   );
   const tva = total * 0.2; // calcul de la TVA à 20%
 
+  const saveOrderToLocalStorage = () => {
+    const orders = JSON.parse(localStorage.getItem("orders") || "[]");
+    const newOrder = {
+      lastName,
+      firstName,
+      pickupDateTime,
+      cart,
+      total: (total + tva).toFixed(2),
+    };
+    orders.push(newOrder);
+    localStorage.setItem("orders", JSON.stringify(orders));
+  };
+
   const handleSubmit = () => {
     // Vérification des champs requis
     if (!lastName || !firstName || !pickupDateTime) {
       alert("Veuillez remplir tous les champs.");
       return;
     }
+
+    // Sauvegarder la commande dans le localStorage
+    saveOrderToLocalStorage();
 
     // Affichage du message de confirmation
     alert(
@@ -44,9 +60,7 @@ const Panier = () => {
         <h1>Votre Panier</h1>
 
         {cart.length === 0 ? (
-          <div className="cont-pan">
-            <p>Votre panier est vide.</p>
-          </div>
+          <p>Votre panier est vide.</p>
         ) : (
           <div className="produit">
             {cart.map((item) => (
