@@ -7,16 +7,15 @@ import Header from "./Header/Header";
 import MessDefil from "./Header/MessDefil";
 
 function App() {
-  return (
-    <CartProvider>
-      {/* Envelopper les composants avec CartProvider */}
-      <MessDefil />
-      <Header />
-      <Banniere />
-      <Cards />
-      <Footer />
-    </CartProvider>
-  );
+	return (
+		<CartProvider>
+			<MessDefil />
+			<Header />
+			<Banniere />
+			<Cards />
+			<Footer />
+		</CartProvider>
+	);
 }
 
 export default App;
