@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import "./Admin.css";
 
-interface Item {
+interface CartItem {
   id: number;
   nom: string;
   prix: number;
@@ -9,86 +11,89 @@ interface Item {
 }
 
 interface Order {
-  id: number;
+  id: string;
   lastName: string;
   firstName: string;
   pickupDateTime: string;
-  items: Item[];
+  cart: CartItem[];
+  total: string;
+  status: string;
 }
 
 const Admin = () => {
-  const orders: Order[] = [
-    {
-      id: 1,
-      lastName: "Dupont",
-      firstName: "Jean",
-      pickupDateTime: "2024-11-29T10:00",
-      items: [
-        { id: 101, nom: "Bouquet de roses", prix: 25, quantity: 2 },
-        { id: 102, nom: "Bouquet de tulipes", prix: 15, quantity: 1 },
-      ],
-    },
-    {
-      id: 2,
-      lastName: "Durand",
-      firstName: "Marie",
-      pickupDateTime: "2024-11-30T14:00",
-      items: [{ id: 103, nom: "Bouquet de lys", prix: 30, quantity: 1 }],
-    },
-  ];
+  const [orders, setOrders] = useState<Order[]>([]);
 
-  const calculateTotal = (items: Item[]): number =>
-    items.reduce(
-      (acc: number, item: Item) => acc + item.prix * item.quantity,
-      0,
+  useEffect(() => {
+    const storedOrders = JSON.parse(localStorage.getItem("orders") || "[]");
+    setOrders(storedOrders);
+  }, []);
+
+  const updateOrderStatus = (orderId: string, status: string) => {
+    const updatedOrders = orders.map((order) =>
+      order.id === orderId ? { ...order, status } : order,
     );
+    setOrders(updatedOrders);
+    localStorage.setItem("orders", JSON.stringify(updatedOrders));
+  };
+
+  const deleteOrder = (orderId: string) => {
+    const updatedOrders = orders.filter((order) => order.id !== orderId);
+    setOrders(updatedOrders);
+    localStorage.setItem("orders", JSON.stringify(updatedOrders));
+  };
 
   return (
     <div>
       <Header />
       <div className="admin">
-        <h1>Gestion des Commandes</h1>
-
+        <h1>Liste des commandes</h1>
         {orders.length === 0 ? (
-          <p>Aucune commande en cours.</p>
+          <p>Aucune commande enregistrée.</p>
         ) : (
-          <div className="commandes">
-            {orders.map((order) => (
-              <div key={order.id} className="commande">
-                <h2>
-                  Commande #{order.id} - {order.firstName} {order.lastName}
-                </h2>
-                <p>Date et heure de retrait : {order.pickupDateTime}</p>
-                <div className="items">
-                  {order.items.map((item) => (
-                    <div key={item.id} className="item">
-                      <h3>{item.nom}</h3>
-                      <p>Prix: {item.prix} €</p>
-                      <p>Quantité: {item.quantity}</p>
-                      <p>
-                        Sous-total: {(item.prix * item.quantity).toFixed(2)} €
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                <h3>Total: {calculateTotal(order.items).toFixed(2)} €</h3>
-                <button
-                  type="button"
-                  onClick={() =>
-                    console.log("Marquer comme préparée", order.id)
-                  }
-                >
-                  Marquer comme préparée
-                </button>
-                <button
-                  type="button"
-                  onClick={() => console.log("Supprimer commande", order.id)}
-                >
-                  Supprimer
-                </button>
-              </div>
-            ))}
-          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Date et heure de retrait</th>
+                <th>Panier</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.map((order) => (
+                <tr key={order.id}>
+                  <td>{order.lastName}</td>
+                  <td>{order.firstName}</td>
+                  <td>{order.pickupDateTime}</td>
+                  <td>
+                    <ul>
+                      {order.cart.map((item) => (
+                        <li key={item.id}>
+                          {item.nom} - {item.quantity} x {item.prix} €
+                        </li>
+                      ))}
+                    </ul>
+                  </td>
+                  <td>{order.total} €</td>
+                  <td>{order.status || "En attente"}</td>
+                  <td>
+                    <button
+                      type="button"
+                      onClick={() => updateOrderStatus(order.id, "Préparée")}
+                    >
+                      Commande préparée
+                    </button>
+                    <button type="button" onClick={() => deleteOrder(order.id)}>
+                      Supprimer la commande
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
       </div>
       <Footer />
