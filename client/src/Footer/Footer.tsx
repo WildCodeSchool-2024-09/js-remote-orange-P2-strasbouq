@@ -74,6 +74,7 @@ const Footer: FC = () => {
           <div
             style={{
               display: "flex",
+              fontSize: "3em",
               justifyContent: "center",
               alignItems: "center",
             }}
